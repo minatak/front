@@ -1,0 +1,106 @@
+<html>
+<head>
+  <title>폼태그 연습</title>
+</head>
+<body>
+  <br/>
+  <h2 align="center">회 원 가 입</h2>
+  <form name="" method="post" action="atom.jsp">
+    <table border="1px" cellpadding="6px" cellspacing="0px">
+      <tr>
+        <th bgcolor="pink">성명</th>
+        <td><input type="text" name="name" id="name" maxlength="10" /></td>
+      </tr>
+      <tr>
+        <th>나이</th>
+        <td><input type="number" name="age" id="age" min="1" max="99" /></td>
+      </tr>
+      <tr>
+        <th>닉네임</th>
+        <td><input type="text" name="nickName" id="nickName" size="10" /></td>
+      </tr>
+      <tr>
+        <th>비밀번호</th>
+        <td><input type="password" name="pwd" id="pwd"  maxlength="15"/></td>
+      </tr>
+      <tr>
+        <th>검색어</th>
+        <td><input type="search" name="search" id="search" /></td>
+      </tr>
+      <tr>
+        <th>이메일</th>
+        <td><input type="email" name="email" id="email" /></td>
+      </tr>
+      <tr>
+        <th>전화번호</th>
+        <td><input type="tel" name="tel" id="tel" /></td>
+      </tr>
+      <tr>
+        <th>성별</th>
+        <td>
+          <input type="radio" name="gender" id="gender1" />남자
+          <input type="radio" name="gender" id="gender2" checked />여자
+        </td>
+      </tr>
+      <tr>
+        <th>소지한 카드</th>
+        <td>
+          <input type="checkbox" name="card" id="card1"/>삼성카드
+          <input type="checkbox" name="card" id="card2"/>LG카드
+          <input type="checkbox" name="card" id="card3"/>농협카드
+          <input type="checkbox" name="card" id="card4"/>신한카드
+          <input type="checkbox" name="card" id="card5"/>롯데카드
+          <input type="checkbox" name="card" id="card6"/>BC카드
+        </td>
+      <tr>
+        <th>직업</th>
+        <td>
+          <select name="job" id="job">
+            <option>선택</option>
+            <option>학생</option>
+            <option>회사원</option>
+            <option>군인</option>
+            <option>의사</option>
+            <option>기타</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>좋아하는음식</th>
+        <td>
+          <select name="job" id="job" size="5" multiple>
+            <option>짜장면</option>
+            <option>돈까스</option>
+            <option>백반</option>
+            <option>피자</option>
+            <option>과일</option>
+            <option>과자</option>
+            <option>주스</option>
+            <option>커피</option>
+            <option>레몬</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>자기소개</th>
+        <td><textarea rows="5" cols="50" name="content" id="content"></textarea></td>
+      </tr>
+      <tr>
+        <th>첨부파일</th>
+        <td><input type="file" name="file" id="file" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <!--
+          <input type="submit" value="전 송">
+          <input type="reset" value="다시입력">
+          -->
+          <button type="submit">전송</button> &nbsp;&nbsp;&nbsp;
+          <button type="reset">다시입력</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <p><br/></p>
+</body>
+</html>

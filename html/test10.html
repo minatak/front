@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>폼태그 연습</title>
+</head>
+<body>
+  <h2>회 원 가 입</h2>
+  <form name="" method="" action="">
+    <p>성명 : <input type="text" name="name" id="name" maxlength="10" /></p>
+    <p>나이 : <input type="number" name="age" id="age" min="1" max="99" /></p>
+    <p>닉네임 : <input type="text" name="nickName" id="nickName" size="10" /></p>
+    <p>비밀번호 : <input type="password" name="pwd" id="pwd"  maxlength="15"/></p>
+    <p>검색어 : <input type="search" name="search" id="search" /></p>
+    <p>이메일 : <input type="email" name="email" id="email" /></p>
+    <p>전화번호 : <input type="tel" name="tel" id="tel" /></p>
+    <p>성별 : 
+      <input type="radio" name="gender" id="gender1" />남자
+      <input type="radio" name="gender" id="gender2" checked />여자
+    </p>
+    <p>
+      소지한 카드 :
+      <input type="checkbox" name="card" id="card1"/>삼성카드
+      <input type="checkbox" name="card" id="card2"/>LG카드
+      <input type="checkbox" name="card" id="card3"/>농협카드
+      <input type="checkbox" name="card" id="card4"/>신한카드
+      <input type="checkbox" name="card" id="card5"/>롯데카드
+      <input type="checkbox" name="card" id="card6"/>BC카드
+    </p>
+    <p>
+      직업 :
+      <select name="job" id="job">
+        <option>선택</option>
+        <option>학생</option>
+        <option>회사원</option>
+        <option>군인</option>
+        <option>의사</option>
+        <option>기타</option>
+      </select>
+    </p>
+    <p>
+      좋아하는음식 :
+      <select name="job" id="job" size="5" multiple>
+        <option>짜장면</option>
+        <option>돈까스</option>
+        <option>백반</option>
+        <option>피자</option>
+        <option>과일</option>
+        <option>과자</option>
+        <option>주스</option>
+        <option>커피</option>
+        <option>레몬</option>
+      </select>
+    </p>
+    <p>
+      자기소개 : <textarea rows="5" cols="50" name="content" id="content"></textarea>
+    </p>
+    <p>
+      첨부파일 : <input type="file" name="file" id="file" />
+    </p>
+    <p>
+      주문수량1 : <input type="range" name="su" id="su" min="1" max="10" value="5" />개
+    </p>
+    <p>
+      주문수량2 : <input type="number" name="su2" id="su2" step="5" min="0" max="20" value="0" />개
+    </p>
+    <p>
+      작업 진행 상태 : <progress value="30" max="100"></progress>
+    </p>
+    <p>
+      사용량(트래픽스) : 
+      <meter value="700" low="200" high="800" min="100" max="1000"></meter>
+    </p>
+    <p>
+      그린대학교
+      <select name="hakkwa" id="hakkwa">
+        <optgroup label="공과대학">
+          <option>기계공학과</option>
+          <option>전자공학과</option>
+          <option>컴퓨터공학과</option>
+          <option>토목공학과</option>
+          <option>반도체공학과</option>
+        </optgroup>
+        <optgroup label="인문대학">
+          <option>경상학부</option>
+          <option>행정학부</option>
+          <option>기타학부</option>
+        </optgroup>
+        <optgroup label="자연대학">
+          <option>물리학과</option>
+          <option>화학과</option>
+          <option>수학과</option>
+        </optgroup>
+      </select>
+    </p>
+    <p>
+      대학명 : <input type="text" name="uni" id="uni" value="그린대학교" readonly />
+    </p>
+    <p>
+      대학명 :
+      <input type="text" name="ac" id="ac" list="choices" required />
+      <datalist id="choices">
+        <option>서울대학교</option>
+        <option>충북대학교</option>
+        <option>연세대학교</option>
+        <option>고려대학교</option>
+        <option>서강대학교</option>
+        <option>청주대학교</option>
+      </datalist>
+    </p>
+    <p>
+      날짜 : <input type="date" name="today" id="today" />
+    </p>
+    <p>
+      시간 : <input type="time" name="today2" id="today2" />
+    </p>
+  </form>
+  <p><br/></p>
+</body>
+</html>
