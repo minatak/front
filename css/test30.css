@@ -1,0 +1,39 @@
+/* test30.css */
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  height: 100vh;
+  background-color: #eee;
+}
+
+.item {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(245, 245, 153);
+}
+
+.big-item1, .big-item2 {
+  display: grid;
+  margin: 20px 0px;
+}
+/*
+.big-item1 {
+  grid-template-columns: repeat(3, 200px);
+}
+
+.big-item2 {
+  grid-template-columns: repeat(4, 100px);
+}
+*/
+
+.big-item1 {
+  grid-template-rows: 100px 200px 300px;
+}
+
+.big-item2 {
+  grid-template-rows: 100px 200px;
+  grid-template-columns: repeat(3, 200px);
+}
+

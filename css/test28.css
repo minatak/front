@@ -1,0 +1,60 @@
+/* test28.css */
+body {
+  margin: 0px;
+  font-size: 0.8em;
+}
+.container {
+  background-color: bisque;
+  height: 100vh;
+  display: flex;
+
+  /* 플랙스 그리드의 기본방향(행 기준)*/
+  /* flex-direction: row; */  
+  /* flex-direction: column; */
+  
+  /* 방향을 역뱡으로 배치 */
+  /* flex-direction: row-reverse; */
+  
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap-reverse; */
+  
+  
+  flex-direction: row;  
+  flex-wrap: wrap;
+  /* justify-content: flex-start; */
+  /* justify-content: flex-end; */
+
+  /* justify-content: center; */
+  /* justify-content: space-around; */
+  /* justify-content: space-between; */
+  justify-content: space-evenly;
+
+  align-items: center;
+  align-items: baseline;
+
+  align-content: space-around;
+}
+
+.item {
+  width: 70px;
+  height: 70px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.item:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+}
+
+.item1 {background-color: rgb(98, 98, 247);} 
+.item2 {background-color: rgb(86, 192, 121);}
+.item3 {background-color: rgb(255, 160, 160);}
+.item4 {background-color: rgb(247, 98, 98);}
+.item5 {background-color: rgb(247, 98, 247);}
+.item6 {background-color: rgb(247, 98, 160);}
+.item7 {background-color: rgb(218, 210, 99);}
+.item8 {background-color: rgb(9, 253, 160);}
+.item9 {background-color: rgb(221, 133, 18);}
+.item10 {background-color: rgb(255, 13, 154);}

@@ -1,0 +1,265 @@
+/* duckyu.css */
+/* PC화면을 주화면으로 기본설계 처리(최소 1024px 기준) */
+
+/* 공통사항(기본 PC모드출발) */
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "맑은 고딕","굴림", "돋움", "궁서";
+  font-size: 1em;
+  background: linear-gradient(to bottom, skyblue, white 50%);
+  background-attachment: fixed;
+}
+ul li {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+/* PC 모드 설정하기 */
+/* 문서 전체 */
+#container {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* 타이틀영역(header) */
+#mainHeader {
+  height: 280px;
+  margin-top: 0px;
+  background-image: url("images/12.jpg");
+}
+
+/* 타이틀바의 제목(로고) */
+#mainHeader h1 {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+/* 타이틀바의 제목(로고) 링크 디자인 */
+.header1 a {
+  color: #ff0;
+  font-size: 2em;
+  text-shadow: 1px 2px 1px #000;
+}
+
+#mainNav {
+  background-color: #060;
+  width: 960px;
+  height: 60px;
+}
+
+#mainNav ul {
+  text-align: center;
+  margin: 0px;
+}
+
+#mainNav ul li {
+  float: left;
+  width: 100px;
+  height: 40px;
+  font-size: 1.1em;
+  padding: 20px 0px 0px 90px;
+}
+
+#mainNav a {
+  display: block;
+  color: #fff;
+  font-weight: bolder;
+}
+
+#mainNav a:hover {
+  color: #00f;
+}
+
+/* 본문 전체 영역 */
+#content {
+  width: 720px;
+  float: left;
+  background-color: #fff;
+  padding-left: 10px;
+}
+
+/* footer영역(Copyright) */
+#footer {
+  clear: both;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0px 20px;
+}
+
+/* 어사이드(사이드바 : 그림(광고)처리) */
+#sidebar {
+  width: 200px;
+  float: right;
+  padding: 20px 10px;
+}
+
+/* 사이드바의 그림처리 */
+#sidebar img {
+  margin-bottom: 12px;
+  border: 1px solid #aaa;
+}
+
+/* 사이드바의 그림처리(마우스 오버시) */
+#sidebar img:hover {
+  border: 1px solid #000;
+  opacity: 0.8;
+}
+
+/* 콘텐트 영역 하단의 article목록에 목록표시하기 */
+.notice li {
+  list-style: circle;
+}
+
+/* 태블릿화면 설정(최소 600px ~ 최대 1023px) */
+@media screen and (min-width:600px) and (max-width:1023px) {
+  #container {
+    width: 580px;
+  }
+  
+  /* 타이틀영역(header) */
+  #mainHeader {
+    height: 170px;
+    background-image: url("images/11.jpg");
+  }
+  
+  /* 타이틀바의 제목(로고) */
+  #mainHeader h1 {
+    margin-top: 20px;
+  }
+  
+  /* 타이틀바의 제목(로고) 링크 디자인 */
+  .header1 a {
+    font-size: 1.5em;
+  }
+
+  /* 네비게이션(메뉴)바 디자인 */
+  #mainNav {
+    width: 580px;
+  }
+  
+  #mainNav ul li {
+    width: 90px;
+    font-size: 1em;
+    padding: 20px 0px 0px 30px;
+  }
+  
+  /* 본문 전체 영역 */
+  #content {
+    width: 550px;
+  }
+  
+  /* footer영역(Copyright) */
+  #footer {
+    font-size: 0.8em;
+  }
+  
+  /* 어사이드(사이드바 : 그림(광고)처리) */
+  #sidebar {
+    width: 550px;
+    padding: 0px 10px;
+  }
+  
+  /* 사이드바의 그림처리 */
+  #sidebar img {
+    width: 32%;
+  }
+  
+  /* 사이드바의 그림처리(마우스 오버시) */
+  #sidebar img:hover {
+    border: 1px solid #000;
+    opacity: 0.8;
+  }
+  
+  /* 콘텐트 영역 하단의 article목록에 목록표시하기 */
+  .notice li {
+    list-style: circle;
+  }
+}
+
+/* 모바일 화면설정(최대 599px) */
+@media screen and (max-width:599px) {
+  #container {
+    width: 320px;
+  }
+
+  /* 타이틀영역(header) */
+  #mainHeader {
+    height: 90px;
+    background-image: url("images/13.jpg");
+  }
+
+  /* 타이틀바의 제목(로고) */
+  #mainHeader h1 {
+    margin-top: 15px;
+  }
+
+  /* 타이틀바의 제목(로고) 링크 디자인 */
+  .header1 a {
+    font-size: 0.8em;
+  }
+
+  /* 네비게이션(메뉴)바 디자인 */
+  #mainNav {
+    width: 320px;
+    height: 0px;
+  }
+
+  #mainNav ul li {
+    width: 280px;
+  }
+
+  #mainNav a {
+    display: block;
+    color: brown;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0 100px 0 -120px;
+    padding: 10px 0px;
+    font-size: 0.92em;
+  }
+
+  /* 본문 전체 영역 */
+  #content {
+    width: 310px;
+    margin-top: 10px;
+  }
+
+  /* footer영역(Copyright) */
+  #footer {
+    font-size: 0.6em;
+  }
+
+  /* 어사이드(사이드바 : 그림(광고)처리) */
+  #sidebar {
+    width: 320px;
+    padding: 0px;
+  }
+
+  /* 사이드바의 그림처리 */
+  #sidebar img {
+    border: 1px solid #ccc;
+    margin: 0 2px;
+    width: 98%;
+  }
+
+  /* 사이드바의 그림처리(마우스 오버시) */
+  #sidebar img:hover {
+    border: 1px solid #000;
+    opacity: 0.8;
+  }
+
+  /* 콘텐트 영역 하단의 article목록에 목록표시하기 */
+  .notice li {
+    list-style: circle;
+  }
+}

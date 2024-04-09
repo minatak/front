@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test16.html</title>
+  <style>
+    .container {
+      width: 400px;
+      line-height: 30pt;
+      border: 1px solid gray;
+      padding: 10px;
+      background-color: #eee;
+    }
+    .title {
+      background-color: #ddd;
+    }
+    input[type="text"] {
+      color: blue;
+      background-color: yellow;
+      font-size: 15pt;
+      padding: 10px 20px 10px 5px;
+      margin: 10px;
+    }
+    input[type="password"] {
+      color: yellow;
+      background-color: blue;
+    }
+    button {
+      background-color: blueviolet;
+      color: white;
+      padding: 5px;
+      margin: 10px;
+      border: 0px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Form태그와 CSS</h2>
+  <form>
+    <div class="container">
+      <div class="gid">
+        <label for="mid" class="title">아이디</label>
+        <input type="text" name="mid" id="mid" size="20" placeholder="아이디를 입력하세요" required autofocus />
+      </div>
+      <div class="gpwd">
+        <label for="pwd" class="title">비밀번호</label>
+        <input type="password" name="pwd" id="pwd" size="20" placeholder="비밀번호를 입력하세요" required />
+      </div>
+      <div class="gage">
+        <label for="age" class="title">나이</label>
+        <input type="number" name="age" id="age" size="20" value="20" min="20" max="99" />
+      </div>
+      <div class="gaddress">
+        <label for="address" class="title">주소</label>
+        <input type="text" name="address" id="address" size="20" placeholder="주소를 입력하세요" />
+      </div>
+      <div class="gclass">
+        <label for="sosok" class="title">소속</label>
+        <input type="text" name="sosok" id="sosok" size="20" value="그린아카데미" readonly />
+      </div>
+      <div class="gbutton">
+        <!--
+        <input type="submit" value="회원가입" /> &nbsp;
+        <input type="reset" value="다시입력" />
+        <input type="button" value="돌아가기" />
+        -->
+        <button type="submit">회원가입</button>
+        <button type="reset" >다시입력</button>
+        <button type="button">돌아가기</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* test28.css */
+body {
+  margin: 0px;
+  font-size: 0.8em;
+}
+.container {
+  background-color: bisque;
+  height: 100vh;
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.item1 {
+  background-color: rgb(164, 231, 231);
+  order: 1;
+  /* flex-basis: 30%; */
+  flex-shrink: 1;
+  flex-grow: 3;
+}
+.item2 {
+  background-color: rgb(94, 224, 100);
+  flex-basis: 20%;
+  order: 2;
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+.item3 {
+  background-color: rgb(253, 207, 55);
+  order: 3;
+  flex-grow: 1;
+  flex-shrink: 3;
+}
+
+.item4 {background-color: rgb(247, 98, 98);}
+.item5 {background-color: rgb(247, 98, 247);}
+.item6 {background-color: rgb(247, 98, 160);}
+.item7 {background-color: rgb(218, 210, 99);}
+.item8 {background-color: rgb(9, 253, 160);}
+.item9 {background-color: rgb(221, 133, 18);}
+.item10 {background-color: rgb(255, 13, 154);}

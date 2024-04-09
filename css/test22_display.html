@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test22.html</title>
+  <style>
+    .aa1, .aa2, .aa3 {
+      background-color: aqua;
+      display: inline;
+    }
+    .aa4 {
+      background-color: wheat;
+      /* display: none; 이렇게 하면 본인이 가지고 있던 공간까지도 사라짐 */
+      /* visibility: hidden; 이렇게 하면 영역은 남아있고 내용만 보이지 않음 */
+    }
+    .aa5, .aa6, .aa7 {
+      background-color: orange;
+      border: 1px solid gray;
+      width: 400px;
+    }
+    .bb1 {
+      display: inline;
+      /* display: block; */
+      /* display: inline-block; */
+      border: 1px solid red;
+      width: 100px;
+      padding: 10px;
+    }
+    .bb1:hover {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h2>Display 속성</h2>
+  <p>각각의 요소들을 어떻게 보여줄지를 결정한다.</p>
+  <p>
+    속성처리 : visibility(기본값:보이기) / hidden(감추기) / inherit(부모요소의 값을 상속받아서 사용)  
+  </p>
+  <p>
+    <b>Display 속성</b>
+    none : <span>화면</span>에서 완정히 사라지게 한다.<br/>
+  </p>
+  <hr/>
+  <h3>사용 예제</h3>
+  <div class="aa1">1.안녕</div> 
+  <div class="aa2">2.안녕</div>
+  <div class="aa3">3.안녕</div>
+  <div class="aa4">4.안녕</div>
+  <hr/>
+  <h2>InLine / InLine-Block / Block</h2>
+  <div class="aa5">
+    5.<font color="red" class="bb1">안녕(InLine)</font>
+  </div>
+  <div class="aa6">
+    6.<span class="bb2"><font color="blue" class="bb2">안녕(InLine-Block)</span></font>
+  </div>
+  <div class="aa7">
+    7.<font color="brown" class="bb3">안녕(Block)</font>
+  </div>
+</body>
+</html>

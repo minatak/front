@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float 연습</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .container {
+      height: 620px;
+    }
+    .top-menu {
+      width: 600px;
+      height: 80px;
+      border: 1px solid gray;
+    }
+    .main .left-menu {
+      float: left;
+      width: 100px;
+      height: 500px;
+      border: 1px solid gray;
+      background-color: #f0ef56;
+    }
+    .main .content {
+      float: left;
+      width: 500px;
+      height: 500px;
+    }
+    .main .content .section {
+      float: left;
+      width: 498px;
+      height: 400px;
+      border: 1px solid gray;
+      background-color: #6556f0;
+    }
+    .main .content .article {
+      clear: both;
+      /* width: 500px; */
+      height: 98px;
+      border: 1px solid gray;
+      background-color: #ffbabd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-menu">top menu</div>
+    <div class="main">
+      <div class="left-menu">left-menu</div>
+      <div class="content">
+        <div class="section">section</div>
+        <div class="article">article</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

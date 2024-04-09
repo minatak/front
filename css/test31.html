@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test31.html</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .container {
+      display: grid;
+      grid-template-areas: 
+        'item1 item1 item1'
+        'item2 item2 item3'
+        'item4 item5 item5';
+      margin: 0px 100px;
+    }
+
+    .item {
+      background-color: rgb(245, 245, 153);
+      text-align: center;
+      line-height: 200px;
+    }
+    .item1 {
+      grid-area: item1;
+      background-color: rgb(247, 98, 98);
+    }
+    .item2 {
+      grid-area: item2;
+      background-color: rgb(35, 32, 221);
+    }
+    .item3 {
+      grid-area: item3;
+      background-color: rgb(150, 98, 247);
+    }
+    .item4 {
+      grid-area: item4;
+      background-color: rgb(197, 219, 116);
+    }
+    .item5 {
+      grid-area: item5;
+      background-color: rgb(189, 52, 136);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+</body>
+</html>
