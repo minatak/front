@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test4_3.html</title>
+  <script>
+    'use strict';
+    document.write("안녕1")
+
+    // atom1();
+    
+    function atom1() { 
+      alert("atom1함수 : 안녕2222");
+    }
+
+    function atom4(su) { 
+      alert("su : " + su);
+      alert("su + 20 : " + su + 20);
+    }
+
+    function atom5(su, str) { 
+      alert("atom5 함수 \n\n su : " + su + ", " + str); // 메세지에서의 줄바꿈 : \n
+    }
+
+    function atom6() { 
+      let su = 2000;
+      let str = "반갑습니다."
+      alert("atom6 함수 => su : " + su + ", " + str);
+      atom5(su, str)
+    }
+
+
+  </script>
+</head>
+<body>
+  <h2>이곳은 본문입니다(body)</h2>
+
+  <input type="button" value="atom1" onclick="atom1()" /> 
+  <!-- <input type="button" value="atom2" onclick="atom2()" />  -->
+  <button type="button" onclick="atom2()">atom2호출</button> 
+  <button type="button" onclick="atom3()">atom3호출</button> 
+  <button type="button" onclick="atom4(500)">atom4호출</button> 
+  <button type="button" onclick="atom5(300, '안녕')">atom5호출</button> 
+  <button type="button" onclick="atom6()">atom6호출</button> 
+
+  <script>
+    function atom2() {
+      alert("atom2 함수 : 안녕3");
+    }
+    function atom3() {
+      atom1();
+      atom2();
+      alert("작업 종료~");
+    }
+  </script>
+</body>
+</html>

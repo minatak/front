@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test13.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    th {
+      text-align: center;
+      background-color: gray;
+      color: white;
+    }
+  </style>
+  <script>
+    'use strict';
+
+    function fCheck(su) {
+      let gender;
+      if(document.getElementById("gender1").checked) gender = "남자";
+      else if(document.getElementById("gender2").checked) gender = "여자";
+      
+      let card = "";
+      if(document.getElementById("card1").checked) card += document.getElementById("card1").value + " / ";
+      if(document.getElementById("card2").checked) card += document.getElementById("card2").value + " / ";
+      if(document.getElementById("card3").checked) card += document.getElementById("card3").value + " / ";
+      if(document.getElementById("card4").checked) card += document.getElementById("card4").value + " / ";
+      if(document.getElementById("card5").checked) card += document.getElementById("card5").value + " / ";
+      if(document.getElementById("card6").checked) card += document.getElementById("card6").value + " / ";
+      
+      let mnt = "";
+      if(document.getElementById("mnt").options[0].selected) mnt += document.getElementById("mnt").options[0].value + " / ";
+      if(document.getElementById("mnt").options[1].selected) mnt += document.getElementById("mnt").options[1].value + " / ";
+      if(document.getElementById("mnt").options[2].selected) mnt += document.getElementById("mnt").options[2].value + " / ";
+      if(document.getElementById("mnt").options[3].selected) mnt += document.getElementById("mnt").options[3].value + " / ";
+      if(document.getElementById("mnt").options[4].selected) mnt += document.getElementById("mnt").options[4].value + " / ";
+      if(document.getElementById("mnt").options[5].selected) mnt += document.getElementById("mnt").options[5].value + " / ";
+      if(document.getElementById("mnt").options[6].selected) mnt += document.getElementById("mnt").options[6].value + " / ";
+      if(document.getElementById("mnt").options[7].selected) mnt += document.getElementById("mnt").options[7].value + " / ";
+
+      let content = document.getElementById("content").value;
+
+      let fName = document.getElementById("fName").value;
+
+      let res = "";
+      res += "<h2>정보조회</h2>";
+      // res += "<table class='table table-bordered'><tr><th style='width:20%'>성별</th><td style='width=80%'>" + gender + "</td></tr>";
+      // res += "<tr><th>소지한 카드</th><td>" + card + "</td></tr>";
+      // res += "<tr><th>다녀온 산</th><td>" + mnt + "</td></tr>";
+      // res += "<tr><th>자기소개</th><td>" + content + "</td></tr>";
+      // res += "<tr><th>첨부파일</th><td>" + fName + "</td></tr></table>";
+      res += "<table class='table table-bordered'><tr><th style='width:20%'>성별</th><th>소지한 카드</th><th>다녀온 산</th><th>자기소개</th><th>첨부파일</th></tr>";
+      res += "<tr><td>" + gender + "</td><td>" + card + "</td><td>" + mnt + "</td><td>" + content + "</td><td>" + fName + "</td></tr></table>";
+          
+      if(su==1) {
+        alert("가입되었습니다.");
+      }
+      else if(su==2) {
+        document.getElementById("infoTable").innerHTML = res; // html로 해석해서 출력됨
+      }
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>회원가입</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>성 별</th>
+      <td>
+        <input type="radio" name="gender" id="gender1" value="남자" checked />남자
+        <input type="radio" name="gender" id="gender2" value="여자" />여자
+      </td>
+    </tr>
+    <tr>
+      <th>소지한 카드</th>
+      <td>
+        <input type="checkbox" name="card" id="card1" value="농협" /> 농협카드 &nbsp;
+        <input type="checkbox" name="card" id="card2" value="삼성" /> 삼성카드 &nbsp;
+        <input type="checkbox" name="card" id="card3" value="GH" checked /> GH카드 &nbsp;
+        <input type="checkbox" name="card" id="card4" value="신한" /> 신한카드 &nbsp;
+        <input type="checkbox" name="card" id="card5" value="국민" /> 국민카드 &nbsp;
+        <input type="checkbox" name="card" id="card6" value="하나" /> 하나카드 &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <th>다녀온 산</th>
+      <td>
+        <select name="mnt" id="mnt" size="5" multiple class="form-control">
+          <option>백두산</option>
+          <option>한라산</option>
+          <option>태백산</option>
+          <option>소백산</option>
+          <option selected>우암산</option>  
+          <option>천태산</option>
+          <option>달마산</option>
+          <option>두륜산</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>자기소개</th>
+      <td>
+        <textarea rows="5" name="content" id="content" class="form-control"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th>첨부파일</th>
+      <td>
+        <input type="file" name="fName" id="fName" class="form-control border" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <button type="button" onclick="fCheck(1)" class="btn btn-success mr-3">전송하기</button>
+        <button type="reset" class="btn btn-warning mr-3">다시입력</button>
+        <button type="button" onclick="fCheck(2)" class="btn btn-success mr-3">정보조회</button>
+      </td>
+    </tr>
+  </table>
+  <hr/>
+  <div >
+    
+    <div id="infoTable"></div>
+  </div>
+</div>
+</body>
+</html>

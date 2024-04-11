@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test9.html</title>
+  <script>
+    'use strict';
+
+    function calc() {
+      let su = eval(prompt("수식을 입력하세요"));
+      // let res = eval(su + 100); // 다른 함수는 이렇게 쓰면 문자로 취급하지만, eval() 함수는 괄호 안의 기호를(+,-,*,/ 등) 계산함
+      alert("su : " + su);
+    }
+    
+  </script>
+</head>
+<body>
+  <h2>본문</h2>
+  <p>
+    <input type="button" value="계산" onclick="calc()"/>
+  </p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test9.html</title>
+  <script>
+    'use strict';
+
+    function msg() {
+      alert("출력된 메세지 입니당");
+    }
+    function msg2(su) {
+      alert("su : " + su);
+    }
+    function msg3() {
+      let su = prompt("수를 입력하세요")
+      alert("su : " + su);
+    }
+    function msg4() {
+      let ans = confirm("작업을 계속하시겠습니까?")
+      // alert("su : " + su);
+      if(ans) {
+        alert("작업을 계속 진행합니다.")
+      }
+      else {
+        alert("작업을 마칩니다.")
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>본문</h2>
+  <p>
+    <input type="button" value="메세지 출력" onclick="msg()"/>
+    <input type="button" value="메세지 출력2" onclick="msg2(100)"/>
+  </p>
+  <p>
+    <input type="button" value="메세지 출력 후 값 받기" onclick="msg3()"/>
+    <input type="button" value="계속할까요?" onclick="msg4()"/>
+  </p>
+</body>
+</html>

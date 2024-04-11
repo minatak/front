@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test8.html</title>
+  <script>
+    'use strict';
+
+    let su1 = 100;
+    console.log("1.su1 : ", su1);
+    {
+      console.log("2.su1 : ", su1);
+      let su2 = 200;
+      console.log("2.su2 : ", su2);
+
+      su1 += su2; // => su1 = su1 + su2 (할당 연산자)
+      console.log("3.su1 : ", su1);
+    }
+    console.log("4.su1 : ", su1);
+    // console.log("su2 : ", su2);
+    su1++;
+    console.log("5.su1 : ", su1);
+    console.log("6.su1 : ", su1++);
+    console.log("7.su1 : ", ++su1);
+  </script>
+</head>
+<body>
+  <h2>본문</h2>
+</body>
+</html>

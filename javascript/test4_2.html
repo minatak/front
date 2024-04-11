@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test4.html</title>
+  <script>
+    document.write("안녕1<br/>")
+
+    atom1();
+    
+    function atom1() { 
+      document.write("atom1 함수 : 안녕2<br/>")
+    }
+
+    // atom1();
+    // atom2(); -> body 태그 안의 것은 보지 않음
+  </script>
+</head>
+<body>
+  <h2>이곳은 본문입니다(body)</h2>
+
+  <input type="button" value="atom1" onclick="atom1()" /> 
+  <!-- <input type="button" value="atom2" onclick="atom2()" />  -->
+  <button type="button" onclick="atom2()">atom2호출</button> 
+
+  <script>
+    function atom2() {
+      document.write("atom2 함수 : 안녕3<br/>") 
+    }
+  </script>
+</body>
+</html>
