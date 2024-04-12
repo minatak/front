@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test04.html(Arrow Function)</title>
+  <script>
+    'use strict';
+
+    // let mbc1 = function() {
+    //   console.log("이곳은 함수 표현식입니다.");
+    // }
+
+    // let mbc1 = () => {
+    //   console.log("이곳은 함수 표현식입니다.");
+    // }
+
+    let mbc1 = () => console.log("1.이곳은 함수 표현식입니다.");
+
+    let mbc2 = () => "2.이곳은 함수 표현식입니다.";
+
+    mbc1();
+    console.log("3.", mbc2()); 
+    let res = mbc2();
+    console.log("4.", res);
+    console.log('');
+
+    // function mbc3(su1, su2) {
+    //    res = su1 + su2;
+    //    return res;
+    // }
+
+    // const mbc3 = (su1, su2) => {
+    //   res = su1 + su2;
+    //   return res;
+    // }
+
+    const mbc3 = (su1, su2) => su1 + su2;
+  </script>
+</head>
+<body>
+  <h2>Arrow Function</h2>
+  <p><input type="button" value="mbc1" onclick="mbc1()"/></p>
+  <p><input type="button" value="mbc3" onclick="alert(mbc3(15, 25))"/></p>
+</body>
+</html>

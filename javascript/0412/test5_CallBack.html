@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test05.html(CallBack Function)</title>
+  <script>
+    'use strict';
+
+    function atom(answer, printYes, printNo) {
+      if(answer.toUpperCase() == 'Y') printYes();
+      else printNo();
+    }
+
+    const printYes = () => console.log("작업을 계속합니다.");
+    const printNo = () => console.log("작업을 종료합니다.");
+
+    let cnt = 0;
+    const callBackFunction = function print() {
+      cnt++;
+      console.log(`${cnt} : 콜백지옥`);
+      print();
+    }
+
+    // 팩토리얼을 콜백함수로 만들기
+    function factorial(n) {
+      return (n != 1) ? n * factorial(n - 1) : 1;
+    }
+
+    function factorialCalc() {
+      let n = prompt("수를 입력하세요");
+      let res = factorial(n);
+      console.log(`입력된 수 ${n}의 팩토리얼 값은 ${res} 입니다.`);
+    }
+  </script>
+</head>
+<body>
+  <h2>콜백함수</h2>
+  <pre>
+    Callback Function : 
+      - 함수가 함수를 호출하는 경우
+      - 함수 호출시 매개값을 함수로 호출하는 함수,
+      - 함수 선언시에 함수를 정의해서 사용하는 경우..
+      - Recursion(되부름(재귀함수)) : 팩토리얼, 피보나치 수열 등
+  </pre>
+  <p><input type="button" value="작업진행" onclick="atom('y', printYes, printNo)"/></p>
+  <p><input type="button" value="작업중지" onclick="atom('n', printYes, printNo)"/></p>
+  <p><input type="button" value="콜백지옥" onclick="callBackFunction()"/></p>
+  <p><input type="button" value="팩토리얼" onclick="alert('5팩토리얼 : '+factorial(5))" /></p>
+  <p><input type="button" value="팩토리얼2" onclick="factorialCalc()" /></p>
+</body>
+</html>

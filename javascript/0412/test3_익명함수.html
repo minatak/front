@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test3.html(익명함수)</title>
+  <script>
+    'use strict';
+
+    calc(5, 10);
+    // mbc(); // 익명함수는 선언 전에 호출할 수 없다
+
+
+    // 일반함수 : Named Function
+    function calc(su1, su2) {
+      console.log(su1 + su2);
+    }
+
+    // 익명함수(호이스팅되지 않음. 즉 익명함수는 선언 전에는 호출할 수 없다.)
+    let mbc = function () {
+      let str = "익명함수 학습하기";
+      console.log(str);
+    }
+
+    mbc();
+    console.log("1.mbc() : ", mbc());
+    console.log("2.mbc : ", mbc);
+    console.log("3.mbc.str : ", mbc.str); // 이렇게 꺼내올수는 없음
+    console.log('');
+
+    let add = function(su1, su2) {
+      console.log(`4. su1:${su1}, su2:${su2}`);
+      return su1 + su2;
+    }
+
+    console.log(`5.add() : ${add(90, 100)}`);
+
+  </script>
+</head>
+<body>
+  <h2>익명함수(Anonymous Function)</h2>
+
+  <p><input type="button" value="일반함수" onclick="calc(50,100)" /></p>
+  <p><input type="button" value="일반함수" onclick="mbc()" /></p>
+</body>
+</html>
