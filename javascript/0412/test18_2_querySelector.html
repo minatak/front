@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test18_2_querySelectorAll.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    window.addEventListener('DOMContentLoaded', function(){
+      let productVar = document.querySelector("#product");   // .value , .focus(), .select()
+      let suVar = document.querySelectorAll(".su");
+
+      calcBtn.addEventListener('click', function(){
+        let product = productVar.value;
+        let su = 0;
+
+        for(let i=0; i<suVar.length; i++) {
+          if(suVar[i].value.trim()=="" || isNaN(suVar[i]).value) {
+            alert("수량을 체크하세요");
+            suVar[i].select();
+            suVar[i].focus();
+            return false;
+          }
+          su += Number(suVar[i].value);
+        }
+
+        demo.innerHTML = `상품명 : ${product} , 전체수량 : ${su}`;
+      });
+    });
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>상품 가격 계산하기</h2>
+  <form name="myform">
+    <div>상품명
+      <input type="text" name="product" id="product" value="에어컨" autofocus class="form-control mb-3"/>
+    </div>
+    <div>1사분기 판매수량
+      <input type="number" name="su" value="10" class="form-control mb-3 su"/>
+    </div>
+    <div>2사분기 판매수량
+      <input type="number" name="su" value="20" class="form-control mb-3 su"/>
+    </div>
+    <div>3사분기 판매수량
+      <input type="number" name="su" value="30" class="form-control mb-3 su"/>
+    </div>
+    <div>4사분기 판매수량
+      <input type="number" name="su" value="40" class="form-control mb-3 su"/>
+    </div>
+    <div>
+      <input type="button" value="계산하기" id="calcBtn" class="btn btn-success form-control"/>
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+</body>
+</html>

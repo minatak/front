@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test6.html(상속)</title>
+  <script src="test6.js"></script>
+  <script>
+    'use strict';
+    console.clear();
+
+    member = new Member("김말숙", 32, '회사원');
+    console.log("member : ", member);
+    console.log('');
+    
+    member.name = "이기자";
+    member.age = -10;
+    member.job = "대학생";
+    console.log("member : ", member);
+    console.log('');
+
+    // 상속 : extends
+    class ChildMember extends Member {}
+
+    let childMember = new ChildMember("소나무", 0, '초등학생');
+    console.log("chihldMember : ", childMember);
+  </script>
+</head>
+<body>
+  <h2>상속 연습</h2>
+</body>
+</html>

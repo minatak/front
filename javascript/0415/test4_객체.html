@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test4.html(객체연습2)</title>
+  <script>
+    'use strict';
+
+    // const obj1 = new Object();
+    const obj2 = {name:'홍길동', age:25, job:'학생'};
+    console.log(obj2);
+    console.log('');
+    
+    obj2.gender = true; // 성별: 남자를  true, 여자를 false로 처리하고자 한다.
+    console.log(obj2);
+    console.log('');
+    
+    delete obj2.gender;
+    console.log(obj2);
+    console.log('');
+    
+    // 값의 처리
+    console.log('성명', obj2.name);
+    console.log('성명2', obj2['name']); // 이렇게 쓸 수도 있지만 잘 안씀 - 변수명을 사용해서 배열의 값을 꺼내고 싶으면 ''를 붙여주면 됨
+    console.log('');
+
+    // const obj3 = {name:'홍길동', age:25, job:'학생'};
+    // const obj4 = {name:'김말숙', age:29, job:'회사원'};
+    // const obj5 = {name:'이기자', age:33, job:'의사'};
+    const obj6 = {name:'소나무', age:55, job:'판사'};
+
+    const obj3 = makeObject('홍길동', 25, '학생');
+    console.log(obj3);
+
+    function makeObject(name, age, job) {
+      return {
+        // name: name,
+        // age: age,
+        // job: job,
+        name,
+        age,
+        job,
+      };
+    }
+    console.log('');
+
+    // '키' 검색..(in)
+    for(let key in obj3) {
+      console.log(key, obj3[key]);
+    }
+    console.log('');
+
+    // '값' 검색..(of)
+    const arr = [1,'one','하나', true];
+    for(let value of arr) {
+      console.log(value);
+    }
+    console.log('');
+
+    // 객체 복사(얕은복사)
+    console.log("obj6 : ", obj6);
+    let obj7 = obj6;
+    console.log('');
+
+    console.log("obj7 : ", obj7);
+    console.clear();
+    
+    obj7.name = '감나무';
+    console.log("obj7 : ", obj7);
+    console.log('');
+    console.log("obj6 : ", obj6);
+    console.log('');
+
+    // 객체 복사(깊은복사)
+    // const obj8 = new Object();
+    const obj8 = {};
+    for(let key in obj7) {
+      obj8[key] = obj7[key];
+    }
+    console.log("obj8 : ", obj8);
+    console.log('');
+    console.log("obj7 : ", obj7);
+    console.log('');
+
+    obj8.name = '대나무';
+    console.log("obj8 : ", obj8);
+    console.log('');
+    console.log("obj7 : ", obj7);
+    console.log('');
+
+    const obj9 = {};
+    Object.assign(obj9, obj6);
+    console.log("obj9 : ", obj9);
+    console.log('');
+    console.log("obj6 : ", obj6);
+    console.log('');
+
+    obj9.name = '참나무';
+    console.log("obj9 : ", obj9);
+    console.log('');
+    console.log("obj6 : ", obj6);
+    console.log('');
+  </script>
+</head>
+<body>
+  <h2>객체연습</h2>
+</body>
+</html>

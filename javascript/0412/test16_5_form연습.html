@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test16_1.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    th {
+      text-align: center;
+      background-color: gray;
+      color: white;
+    }
+  </style>
+  <script>
+    'use strict';
+
+    function fCheck() {
+      let content = ''; 
+      for(let i=0; i<document.getElementsByName("hobby").length; i++) {
+        if(document.getElementsByName("hobby")[i].checked) {
+          content += document.getElementsByName("hobby")[i].value + " / "
+        };
+      }
+
+      content = content.substring(0, content.length - 2);
+      let contentNum = document.getElementsByName("hobby").length;
+      
+      if(content=='') {
+        document.getElementById("demo").innerHTML = "선택하신 취미가 없습니다.";
+      }
+      else {
+        content += "<br/><input type='button' value='지우기' onclick='fClear()' class='btn btn-danger btn-sm mt-3'/>";
+        document.getElementById("demo").innerHTML = " 선택한 갯수 : <font color='orange'><b>" + contentNum + "</b></font><br/> 선택한 취미 : <font color='orange'><b>" + content + "</b></font>";
+      }
+
+    }
+
+    function fClear() {
+      for(let i=0; i<document.getElementsByName("hobby").length; i++) {
+        document.getElementsByName("hobby")[i].checked = false;
+        document.getElementById("demo").innerHTML = '';
+      }
+    }
+
+    function allCheck() {
+      for(let i=0; i<document.getElementsByName("hobby").length; i++) {
+        document.getElementsByName("hobby")[i].checked = true;
+      }
+    }
+
+    function allReset() {
+      for(let i=0; i<document.getElementsByName("hobby").length; i++) {
+        document.getElementsByName("hobby")[i].checked = false;
+      }
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container" style="text-align: center; width: 800px;">
+  <form name="myform" class="m-3 p-3">
+    <h2 class="m-3">여러개의 값 처리하기</h2>
+    등산 <input type="checkbox" name="hobby" value="등산" /> &nbsp;
+    낚시 <input type="checkbox" name="hobby" value="낚시" /> &nbsp;
+    수영 <input type="checkbox" name="hobby" value="수영" /> &nbsp;
+    바둑 <input type="checkbox" name="hobby" value="바둑" /> &nbsp;
+    탁구 <input type="checkbox" name="hobby" value="탁구" /> &nbsp;
+    바이크 <input type="checkbox" name="hobby" value="바이크" /> &nbsp;
+    독서 <input type="checkbox" name="hobby" value="독서" /> &nbsp;
+    <div style="display: flex; gap: 10px;">
+      <button type="button" onclick="allCheck()" class="btn btn-primary form-control mt-3">전체 선택</button>
+      <button type="button" onclick="allReset()" class="btn btn-warning form-control mt-3">전체 해제</button>
+      <button type="button" onclick="fCheck()" class="btn btn-success form-control mt-3">선택한 취미 보기</button>
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+</body>
+</html>

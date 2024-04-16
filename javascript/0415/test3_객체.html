@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test3.html(객체연습2)</title>
+  <script>
+    'use strict';
+
+    let name = '홍길동';
+    let age = 25;
+    let job = '학생';
+    memberPrint(name, age, job);
+    console.log('');
+
+    name = '김말숙';
+    age = 29;
+    job = '회사원';
+    memberPrint(name, age, job);
+
+    // function memberPrint() {
+    function memberPrint(name, age, job) {
+      console.log(name);
+      console.log(age);
+      console.log(job);
+    }
+    console.log('');
+
+    // Object(객체로 값을 하나의 변수에 받아서 처리해보자.)
+    const obj1 = {name:'홍길동', age:25, job:'학생'};
+    const obj2 = {name:'김말숙', age:29, job:'회사원'};
+
+    memberPrint2(obj1);
+    console.log('');
+    memberPrint2(obj2);
+
+    function memberPrint2(member) {
+      console.log(member.name);
+      console.log(member.age);
+      console.log(member.job);
+    }
+  </script>
+</head>
+<body>
+  <h2>객체연습</h2>
+</body>
+</html>

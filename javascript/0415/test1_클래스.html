@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test1.html(클래스)</title>
+  <script>
+    'use strict';
+
+    // 클래스 만들기
+    class Member {
+      // 필드명
+      name;
+      age;
+
+      // 생성자
+      // constructor() {}
+
+      // 사용자 지정 생성자
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      // 메소드
+      memberPrint() {
+        let job = '학생';
+        console.log("1.성명 : ", this.name, ", 나이 : ", this.age);
+      }
+    }
+
+    // 클래스 호출
+    let member = new Member("홍길동", 25);
+
+    console.log("1.성명 : ", member.name, ", 나이 : ", member.age);
+    member.memberPrint();
+  </script>
+</head>
+<body>
+  <h2>클래스 연습</h2>
+</body>
+</html>
