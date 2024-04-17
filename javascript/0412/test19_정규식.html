@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정규식</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="test19.js"></script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>정규식(Regular Expression)</h2>
+  <form name="my form" method="post">
+    <div>
+      <p><input type="text" name="content" id="content" autofocus required class="form-control"/></p>
+      <!-- <p><textarea rows="6" name="content" id="content" class="form-control"></textarea></p> -->
+      <p><input type="button" value="정규식체크" onclick="regexCheck()" class="btn btn-primary"/></p>
+    </div>
+  </form>
+  <hr/>
+  <pre>
+    형식 : /~~~/플러그인, /[~~~~]/플러그인, 자바 : ^[~~~~]*$
+    플러그인 :
+      g(global) : 전체범위에서의 처리(기본)
+      m(multi line) : 여러줄에 걸쳐서 처리(textarea 태그)
+      s(single line) : 한 줄에서의 처리(기본값)
+      i : 영문자인 경우 대/소문자를 구별하지 않음
+      u(unicode) : 유니코드에 대한 구별처리 시 사용
+
+      정규식을 실행하기 위해서 사용되는 함수 :
+        1. 사용자입력문자열.match(정규표현식 or 정규표현식 담은 변수) : 포함 유무에 대한 비교시에 사용할때 편리함
+        2. 정규표현식변수.test(사용자 입력 문자열 / 이 방법을 좀 더 많이 씀) : 구체적인 문자(열)간의 비교 체크시에 사용하면 편리함
+  </pre>
+  <p><b>Front에서 Server로의 값을 전송(Form 태그 사용)할 시에는 사용자 값을 입력 후 <span style="color: red; font-weight: bold;">반드시!!<span style="background-color: yellow;">유효성 검사</span></span>를 거쳐야 한다.</b></p>
+</div>
+</body>
+</html>

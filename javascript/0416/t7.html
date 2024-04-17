@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t7.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    function backClear() {
+      let str = document.getElementById("str").value.trim();
+
+      if(str == "") alert("문자를 입력하세요")
+      else {
+        str = str.substring(0, str.length - 1);
+        document.getElementById("str").value = str;
+      }
+      document.getElementById("str").focus(); // 실제로는 이렇게 id로는 잘 안씀 
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>Backspace 키 연습</h2>
+  <hr/>
+  <form name="myform">
+    <div>문자 입력
+      <input type="text" name="str" id="str" value="Welcome to Korea!" autofocus class="form-control mb-2" />
+      <input type="button" value="Backspace" onclick="backClear()" class="btn btn-success form-control mt-2" />
+    </div>
+  </form>
+</div>
+</body>
+</html>

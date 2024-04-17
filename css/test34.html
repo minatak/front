@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test34.html(가상요소/가상클래스)</title>
+  <style>
+    p.aa {
+      color: brown;
+    }
+    p.aa::before {
+      content: "♡ ";
+    }
+    p.aa::after {
+      content: " ♥";
+    }
+    p.bb::selection {
+      color: blue;
+      background-color: yellow;
+    }
+    p.cc::before {
+      content: url("../../images/images/1.gif");
+    }
+  </style>
+</head>
+<body>
+  <h2>Pseudo-class(가상클래스) / Pseudo-element(가상요소)</h2>
+  <pre>
+    사용법 :
+      선택자 : 가상클래스 {
+        속성 : 속성 값;
+      }
+
+      선택자 : 가상요소 {
+        속성 : 속성 값;
+      }
+
+    자주 사용하는 가상 클래스 ==> :hover, :link, :first-child, :last-child
+    자주 사용하는 가상요소 ==> ::before, ::after, ::first-line
+  </pre>
+  <hr/>
+  <p class="aa">1.안녕하세요</p>
+  <p class="bb">저를 드래그 해주세요</p>
+  <p class="cc">3.안녕하세요</p>
+</body>
+</html>

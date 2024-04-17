@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t06_1_비동기식.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    let statusTime1, statusTime2, statusTime3;
+    let img1, img2, img3;
+    let cnt = 0;
+
+    // 비동기식 콜백실습...
+    function play() {
+      cnt++;
+      demo4.innerHTML = '';
+      asynchronous1();
+      asynchronous2();
+      asynchronous3();
+
+      // 버튼 감추기 / 보이기
+      document.getElementById("btn1").style.display = 'none';
+      document.getElementById("btn2").style.display = 'block';
+    }
+
+    function asynchronous1() {
+      let delay = parseInt(Math.random()*(10-5+1))+5;
+      delay *= 20;
+      statusTime1 = setTimeout(asynchronous1, delay);
+      img1 = parseInt(Math.random()*6)+1;
+      demo1.innerHTML = `<img src="../../../images/${img1}.jpg" width="200px" height="150px"/>`;
+    }
+
+    function asynchronous2() {
+      let delay = parseInt(Math.random()*(10-5+1))+5;
+      delay *= 25;
+      statusTime2 = setTimeout(asynchronous2, delay);
+      img2 = parseInt(Math.random()*6)+1;
+      demo2.innerHTML = `<img src="../../../images/${img2}.jpg" width="200px" height="150px"/>`;
+    }
+
+    function asynchronous3() {
+      let delay = parseInt(Math.random()*(10-5+1))+5;
+      delay *= 15;
+      statusTime3 = setTimeout(asynchronous3, delay);
+      img3 = parseInt(Math.random()*6)+1;
+      demo3.innerHTML = `<img src="../../../images/${img3}.jpg" width="200px" height="150px"/>`;
+    }
+
+    function stop() {
+      clearTimeout(statusTime1);
+      clearTimeout(statusTime2);
+      clearTimeout(statusTime3);
+      document.getElementById("btn1").style.display = 'block';
+      document.getElementById("btn2").style.display = 'none';
+      let batting = document.getElementById("batting").value;
+
+      let baedang = 0;
+      let str = `<div class="text-center mb-3">총 수행 횟수 : <b>${cnt} 회</b></div>`;
+      if(img1 == img2 && img2 == img3) {
+        baedang = batting * img1 * 10;
+        str += `<font size="5" color="blue"><b>축하드립니다. 당첨 되셨습니다.<br/>배당금 : ${baedang}원</b></font>`;
+      }
+      else if(img1 == img2 || img1 == img3 || img2 == img3) {
+        if(img1 == img2 || img1 == img3) baedang = eval((img1 * 10) * (batting * 0.1));
+        else if(img2 == img3) baedang = eval((img2 * 10) * (batting * 0.05));
+        str += `<font size="5" color="orange"><b>아깝습니다. 좀더 분발하세요.<br/>배당금 : ${baedang}원</b></font>`;
+      }
+      else {
+        str += `<font size="5" color="red"><b>운이 없으시군요. 다음기회에~~<br/>배당금 : 0원</b></font>`;
+      }
+      str += '<button type="button" onclick="location.reload()" class="btn btn-primary form-control mt-3">다시 하기</button>';
+      demo4.innerHTML = str;
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2 class="text-center">JACKPOT GAME</h2>
+  <hr/>
+  <div class="row">
+    <div class="col text-center"><img src="../../../images/1.jpg" width="100px" height="80px"/><br/>X 10</div>
+    <div class="col text-center"><img src="../../../images/2.jpg" width="100px" height="80px"/><br/>X 20</div>
+    <div class="col text-center"><img src="../../../images/3.jpg" width="100px" height="80px"/><br/>X 30</div>
+    <div class="col text-center"><img src="../../../images/4.jpg" width="100px" height="80px"/><br/>X 40</div>
+    <div class="col text-center"><img src="../../../images/5.jpg" width="100px" height="80px"/><br/>X 50</div>
+    <div class="col text-center"><img src="../../../images/6.jpg" width="100px" height="80px"/><br/>X 60</div>
+  </div>
+  <hr/>
+  <div>
+    - 3장의 그림이 맞으면 '배팅금액 * 그림액면수' 만큼의 배당금이 지급됩니다.<br/>
+    - 2장의 그림이 맞으면 해당 '그림액면수 * 배팅금액의 5%' 가 지급됩니다.<br/>
+    - 일치하는 그림이 없으면 배팅금액은 모두 사라집니다. 
+  </div>
+  <hr/>
+  <div class="row text-center">
+    <div class="col text-right">배팅할 금액을 입력하세요</div>
+    <div class="col"><input type="number" name="batting" id="batting" value="100000" class="form-control" step="5000"/></div>
+    <div class="col"></div>
+  </div>
+  <hr/>
+  <input type="button" value="잭팟을 돌려주세요" id="btn1" onclick="play()" class="btn btn-success form-control"/>
+  <input type="button" value="멈춰주세요" id="btn2" onclick="stop()" style="display:none;" class="btn btn-danger form-control"/>
+  <hr/>
+  <div class="row text-center">
+    <div class="col" id="demo1"></div>
+    <div class="col" id="demo2"></div>
+    <div class="col" id="demo3"></div>
+  </div>
+  <hr/>
+  <div id="demo4" class="text-center"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입폼</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /*
+      자바스크립트 : /[~~]/플러그인
+      [^] : [] 안의 ^는 부정의 의미
+      ^[] : [] 앞의 ^는 '처음(시작)'의 의미
+      []+ : [] 뒤의 +는 1개 이상,  *은 0개 이상, ? 0개이거나 1개 이다.
+      []+$: $는 마지막을 의미, []뒤의 +$는 []안의 문자가 1개 이상이고, 또 1개 이상으로 끝날수도 있다.
+      ( ) : 그룹적용시
+      { } : 범위(크기) 적용시, 범위에 나오는 중괄호앞의 '.'은 앞의 내용이 {} 범위갯수만큼 진행하라는 구분자.
+      ?=.* : 앞쪽 모두(.)일치, []안의 내용이 1개이상 반복(*) 한다.
+      w   : 알파벳(대/소문자), 숫자, 밑줄(_)의 포함유무
+      자바스크립트에서의 한글은 유니코드에 완성된 코드로 등록되어 있기에 특수코드로 취급되지 않는다.
+    */
+    
+    function fCheck() {
+      // 항상 먼저 정규식변수를 만들어놓고 작업한다.
+      let regMid = /^[a-zA-Z0-9_]{4,20}$/;    // 아이디는 영문대소문자, 숫자, _ 만 포함하여 4~20자까지 처리
+      let regPwd = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+\-={}[\],./<>?])[a-zA-Z\d~!@#$%^&*()_+\-={}[\],./<>?]{4,20}$/;      // 비밀번호는 영문자, 숫자, 특수문자(~!@#$%^&*()_+-={}[],./<>?)가 최소 1자 이상은 포함되면서 4~20자까지로 한다.
+      let regNickName = /^[a-zA-Z가-힣0-9]{2,10}$/;  // 닉네임은 영문자와 한글과 숫자만 사용가능. 2~10자 이내로 작성
+      let regName = /^[a-zA-Z가-힣]{2,10}$/;       // 성명은 영문자와 한글만 사용가능. 2~10자 이내로 작성
+      let regEmail = /^[a-zA-Z0-9]([-_]?[a-zA-Z0-9])*@[a-zA-Z0-9]([-_]?[a-zA-Z0-9])*(\.[a-zA-Z]{2,3})+$/i;        // 영문 이메일형식에 맞도록 작성(abc@naver.com, abc@naver.co.kr , a_bc@a.b.com)
+      let regHomePage = /^https?:\/\/.+/;   // 홈페이지 형식에 맞도록 설계(http://~~~, https://~~~)
+      let regTel = /\d{2,3}-\d{3,4}-\d{4}$/g;    // 형식 :    000-0000-0000 
+      let regJumin = /^\d{6}-[1-4]{1}$/;    // 형식 :    000000-0
+
+      let mid = document.getElementById("mid").value.trim();
+      let pwd = document.getElementById("pwd").value.trim();
+      let rePwd = document.getElementById("rePwd").value.trim();
+      let nickName = document.getElementById("nickName").value.trim();
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let homePage = document.getElementById("homePage").value.trim();
+      let tel = document.getElementById("tel").value.trim();
+      let jumin = document.getElementById("jumin").value.trim();
+
+      // 유효성 검사 
+      if(!regMid.test(mid)) {
+        alert("아이디는 영문 대/소문자와 숫자, 그리고 밑줄(_)을 포함하여 4~20자까지 가능합니다.");
+        document.getElementById("mid").focus();
+        return false;
+      }
+      if(!regPwd.test(pwd)) {
+        alert("비밀번호는 영문 대소문자, 숫자, 특수문자를 최소 1자 이상씩 포함해야 하며 4~20자까지 가능합니다.");
+        document.getElementById("pwd").focus();
+        return false;
+      }
+      if (pwd !== rePwd) { 
+        alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+        document.getElementById("rePwd").focus();
+        return false;
+    }
+      if(!regNickName.test(nickName)) {
+        alert("닉네임은 영문자와 한글, 숫자만 사용가능하며 2~10자 이내로 작성해야 합니다.");
+        document.getElementById("pwd").focus();
+        return false;
+      }
+      if(!regName.test(name)) {
+        alert("이름은 영문자와 한글, 숫자만 사용가능하며 2~10자 이내로 작성해야 합니다.");
+        document.getElementById("pwd").focus();
+        return false;
+      }
+      if(!regEmail.test(email)) {
+        alert("이메일 형식에 맞도록 작성해 주세요.");
+        document.getElementById("email").focus();
+        return false;
+      }
+      if(!regHomePage.test(homePage)) {
+        alert("웹사이트 형식에 맞도록 작성해 주세요.");
+        document.getElementById("homePage").focus();
+        return false;
+      }
+      if(!regTel.test(tel)) {
+        alert("전화번호 형식(000-0000-0000)에 맞도록 작성해 주세요.");
+        document.getElementById("tel").focus();
+        return false;
+      }
+      if(!regJumin.test(jumin)) {
+        alert("올바른 주민등록번호를 입력해주세요.");
+        document.getElementById("jumin").focus();
+        return false;
+      }
+
+      alert("회원가입이 완료되었습니다.");
+      // myform.submt();
+      // location.href = "주소?변수=값&변수2=값2~~~";
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>회 원 가 입</h2>
+  <form name="myform" method="post">
+    <div class="form-group">
+      <label for="mid">아이디</label>
+      <input type="text" name="mid" id="mid" value="hkd1234" placeholder="아이디를 입력하세요" class="form-control" autofocus required />
+    </div>
+    <div class="form-group">
+      <label for="pwd">비밀번호</label>
+      <input type="password" name="pwd" id="pwd" value="asdf1234!" placeholder="비밀번호를 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="rePwd">비밀번호체크</label>
+      <input type="password" name="rePwd" id="rePwd" value="asdf1234!" placeholder="비밀번호를 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="nickName">닉네임</label>
+      <input type="text" name="nickName" id="nickName" value="홍장군" placeholder="닉네임을 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="name">성명</label>
+      <input type="text" name="name" id="name" value="홍길동" placeholder="성명을 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="email">이메일</label>
+      <input type="text" name="email" id="email" value="cjsk1126@naver.com" placeholder="이메일을 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="homePage">홈페이지</label>
+      <input type="text" name="homePage" id="homePage" value="cjsk1126.tistory.com" placeholder="홈페이지 주소를 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="tel">전화번호</label>
+      <input type="text" name="tel" id="tel" value="010-1234-5678" placeholder="전화번호를 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="jumin">주민번호</label>
+      <input type="text" name="jumin" id="jumin" value="201126-1" placeholder="주민번호(년월일-성별)을 입력하세요" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="birthday">생일</label>
+      <input type="date" name="birthday" id="birthday" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="content">자기소개서</label>
+      <textarea rows="5" name="content" id="content" class="form-control" required>자기소개서 등록하기</textarea>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"><input type="button" value="회원가입" onclick="fCheck()" class="btn btn-success form-control"/></div>
+      <div class="col"><input type="reset" value="다시입력" class="btn btn-warning form-control"/></div>
+      <div class="col"></div>
+    </div>
+  </form>
+  <hr/>
+  
+</div>
+</body>
+</html>
