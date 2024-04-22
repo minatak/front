@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t01_Basic.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){  
+      // let product = document.getElementById("product").value; 
+      // demo.innerHTML = product;
+
+      // $(선택자).메소드(function(){수행내용});
+      let product = $("#product").val();
+      let price = $("#price").val();
+      let su = $("#su").val();
+
+      if(isNaN(price) || isNaN(su)) {
+        alert("가격과 수량은 숫자로 입력하세요");
+        $("#price").select();
+        $("#price").focus();
+        return;
+      }
+
+      let res = price * su;
+
+      // $("#demo").text(product);
+      $("#demo").html(numberWithCommas(price));
+    });
+
+     // 콤마 변환함수 (1,234)
+    function numberWithCommas(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");  
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <form name="myform">
+    <h2>상품가격 계산하기</h2>
+    <div>상품명
+      <input type="text" name="product" id="product" value="냉장고" autofocus class="form-control mb-3" /> 
+    </div>
+    <div>상품가격
+      <input type="number" name="price" id="price" value="1000000" class="form-control mb-3" />
+    </div>
+    <div>구매수량
+      <input type="number" name="su" id="su" value="2" class="form-control mb-3" />
+    </div>
+    <div>
+      <input type="button" value="계산하기" id="calcBtn" class="btn btn-success form-control mb-3" />
+    </div>
+    <div id="demo"></div>
+  </form>
+</div>
+</body>
+</html>

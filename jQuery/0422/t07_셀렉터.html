@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t07_셀렉터.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    
+    // 1.전체적으로 글자크기 12pt, 글자색 gray
+    // 2.제목 : 배경색 blue
+    // 3.아이디 user : 글자크기 20pt, 문서장식:underline
+    // 4.연(class: yeon): 배경색 pink
+    // 5.class: test 는 글자색 brown
+    // 6.class: main 은 배경색 yellow
+
+    // 조합(혼합) 선택자 연습하기
+    // div태그에 있는 yeon클래스에 대하여 글자색:red, 글자두께:bolder
+    // div태그 자손중에서 main클래스에 대하여 글꼴을 '궁서'
+
+    // 형제(묶음) 선택자
+    // 클래스 aa/bb/cc 에 대하여 글자스타일을 italic
+    
+    $(function(){
+      $("*").css({ //1
+        fontSize: "12pt",
+        color: "gray"
+        // textAlign: "center"
+      });
+      $("h2").css("backgroundColor", "blue"); //2
+      $("#user").css({ //3
+        fontSize: "20pt",
+        textDecoration: "underline"
+      });
+      $(".yeon").css("backgroundColor", "pink"); //4
+      $(".test").css("color", "brown"); //5
+      $(".main").css("backgroundColor", "yellow"); //6
+      
+      $("div.yeon").css({ // 조합 선택자 연습
+        color: "red",
+        fontWeight: "bolder"
+      });
+      $("div.main").css("fontFamily", "궁서");
+      
+      $(".aa, .bb, .cc").css("fontStyle", "italic"); // 형제(묶음) 선택자 연습 
+    });
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>진달래 꽃</h2>
+  <p>작가 : <span id="user">김소월</span></p>
+  <div class="yeon">1연</div>
+  <div>나보기가 <span class="test">역겨워</span> 가실때에는</div>
+  <div><span class="main">말없이</span> 고이보내 드리오리다.</div>
+  <div class="yeon">2연</div>
+  <div>영변에 <span class="yeon">약산</span> 진달래꽃</div>
+  <div><span class="test main">아름따다</span> 가실길에 <span class="aa">뿌리오리다.</span></div>
+  <div class="yeon">3연</div>
+  <div>가시는 걸음걸음 놓인그꽃을</div>
+  <div>사뿐이 <span class="test">즈려밟고</span> <span class="bb">가시옵소서</span></div>
+  <div class="yeon">4연</div>
+  <div>나보기가 역겨워 <span class="main">가실때에는</span></div>
+  <div>죽어도 <span class="test">아니눈물</span> <span class="cc">흘리오리다.</span></div>
+  <div class="main">The End...</div>
+  <hr/>
+  <div id="demo" class="yeon">안녕하세요.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t16_slideDown_Up.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    $(function(){
+      $("button.menuBtn").on("mouseover", function(){
+        $("div.menuOpen").slideUp("slow");
+      });
+      $("button.menuBtn").on("mouseout", function(){
+        $("div.menuOpen").slideDown("slow");
+      });
+    });
+
+  </script>
+  <style>
+    div.menuOpen {
+      width: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <button class="menuBtn">메뉴연습</button>
+  <div class="menuOpen">
+    메뉴1<br/>
+    메뉴2<br/>
+    메뉴3<br/>
+  </div>
+</div>
+</body>
+</html>

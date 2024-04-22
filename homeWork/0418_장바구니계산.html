@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장바구니</title>
+  <link rel="stylesheet" href="0418_장바구니.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    
+    // 가격계산(개별가격*수량)
+    function priceCalc() {
+      if(blankCheck()) {
+        let price = myform.price.value * myform.ea.value;
+        demo1.innerHTML = numberWithCommas(price) + "원";
+      }
+    }
+
+    // VAT계산(총가격이 10%)
+    function vatCalc() {
+      if(blankCheck()) {
+        let price = myform.price.value * myform.ea.value;
+        let vat = price * 0.1;
+        demo2.innerHTML = numberWithCommas(vat) + "원";
+      }
+    }
+
+    // 총가격계산(VAT포함한 가격)
+    function totalCalc() {
+      if(blankCheck()) {
+        let price = myform.price.value * myform.ea.value;
+        let vat = price * 0.1;
+        let totalPrice = price + vat;
+        demo3.innerHTML = numberWithCommas(totalPrice) + "원";
+      }
+    }
+
+    function blankCheck() {
+      let price = myform.price.value;
+      if(price == 0) {
+        alert("사이즈(단가)를 선택하세요");
+        return false;
+      }
+      return true;
+    }
+
+    function productChoice() {
+      let product = document.getElementById("product").value;
+
+      let productArr = ["상품선택 메세지", "수영복", "튜브", "보트", "물안경", "오리발"];
+      let productTextArr = new Array();
+      let productValueArr = new Array();
+
+      if(product == productArr[1]) {  // 수영복
+        productTextArr = ["S : 5000원","M : 10000원","L : 15000원", "XL : 20000원", "XXL : 25000원"];
+        productValueArr = [5000, 10000, 15000, 20000, 25000];
+      }
+      else if(product == productArr[2]) { //튜브
+        productTextArr = ["소형: 10000원", "중형 : 20000원", "대형 : 30000원"];
+        productValueArr = [10000, 20000, 30000];
+      }
+      else if(product == productArr[3]) { // 보트
+        productTextArr = ["소형 : 50000원","중형 : 100000원","대형 : 150000원", "초대형 : 200000원"];
+        productValueArr = [50000, 100000, 150000, 200000];
+      }
+      else if(product == productArr[4]) { // 물안경
+        productTextArr = ["어린이용 : 5000원","청소년용 : 7000원", "성인용 : 10000원"];
+        productValueArr = [5000, 7000, 10000];
+      }
+      else if(product == productArr[5]) { // 오리발
+        productTextArr = ["S : 15000원","M : 20000원","L : 25000원", "XL : 30000원"];
+        productValueArr = [15000, 20000, 25000, 30000];
+      }
+      else {  // 오리발
+        productTextArr = ["사이즈를 선택하세요"];
+        productValueArr = [0]
+      }
+
+      let str = '';
+      for(let i=0; i<productTextArr.length; i++) {
+        str += `<option value="${productValueArr[i]}">${productTextArr[i]}</option>`;
+      }
+      document.getElementById("price").innerHTML = str;
+    }
+
+    function resetCheck() {
+      demo1.innerHTML = "";
+      demo2.innerHTML = "";
+      demo3.innerHTML = "";
+      demoCart.innerHTML = "";
+    }
+
+    
+    function cartSend() {
+      let product = myform.product.value;
+      let ea = myform.ea.value;
+      let price = myform.price.value;
+      let vat = price * ea * 0.1;
+      let totalPrice = price * ea + vat;
+      totalCheck += totalPrice;
+
+      demoCartTotal.innerHTML = numberWithCommas(totalCheck) + "원"; 
+
+      let newCart = '<div class="row text-center" id="cartRow">';
+      newCart += '<div class="col">' + product + '</div>';
+      newCart += '<div class="col">' + ea + '</div>';
+
+      newCart += '<div class="col">' + numberWithCommas(totalPrice) + '원</div>';
+      newCart += '<div class="col"><button xxonclick="deleteRow(this)" class="btn btn-outline-danger mb-2"><i class="fa-solid fa-minus"></i></button></div>'
+      newCart += '</div>';
+      demoCart.innerHTML += newCart;
+
+      document.getElementById("product").selectedIndex = 0;
+      document.getElementById("price").selectedIndex = 0;
+      document.getElementById("ea").value = "1";
+
+      resetCheck();
+    }
+    
+    // 콤마 변환함수(1,234)
+    function numberWithCommas(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>상품 가격 계산</h2>
+  <br/>
+  <form name="myform">
+    <div class="border p-2 mb-3">
+      <div class="form-group p-2">
+        <label for="product">상품명 :</label>
+        <select name="product" id="product" onchange="productChoice()" class="form-control">
+          <option selected>상품을 선택하세요</option>
+          <option>수영복</option>
+          <option>튜브</option>
+          <option>보트</option>
+          <option>물안경</option>
+          <option>오리발</option>
+        </select>
+      </div>
+      <div class="form-group p-2">
+        <label for="price">사이즈(단가) :</label>
+        <select name="price" id="price" class="form-control">
+          <option value="0" selected>사이즈를 선택하세요</option>
+        </select>
+      </div>
+      <div class="form-group p-2">
+        <label for="ea">수량(개)</label>
+        <input type="number" name="ea" id="ea" value="1" min="1" class="form-control"/>
+      </div>
+      <div class="buttons m-3">
+        <div class="row justify-content-center">
+          <input type="button" value="가격" onclick="priceCalc()" class="btn btn-secondary m-1 col"/>
+          <input type="button" value="부가세" onclick="vatCalc()" class="btn btn-secondary m-1 col"/>
+          <input type="button" value="총 가격" onclick="totalCalc()" class="btn btn-secondary m-1 col"/>
+          <input type="reset" value="다시선택" onclick="resetCheck()" class="btn btn-secondary m-1 col"/>
+        </div>
+        <div class="row justify-content-center">
+          <input type="button" value="장바구니담기" onclick="cartSend()" class="btn btn-warning m-1 col">
+          <input type="button" value="장바구니비우기" onclick="location.reload()"  class="btn btn-danger m-1 col">
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-2 p-2 border" id="demoProduct">
+      <div class="row mb-1">
+        <div class="col ml-4">☞ 가격 : </div>
+        <div class="col" id="demo1"></div>
+      </div>
+      <div class="row mb-1">
+        <div class="col ml-4">☞ VAT(가격의 10%) : </div>
+        <div class="col" id="demo2"></div>
+      </div>
+      <div class="row">
+        <div class="col ml-4">☞ 총판매가격(VAT포함) : </div>
+        <div class="col" id="demo3"></div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container mt-5" id="CartContainer">
+  <form class="myform2">
+      <hr/>
+      <br/>
+      <h2>장바구니</h2>
+      <br/>
+      <div id="demoCart"></div>
+      <div id="demoCartTotal" class="pb-5"></div>
+  </form>
+</div>
+</body>
+</html>
