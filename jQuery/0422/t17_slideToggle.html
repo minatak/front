@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>t17_slideDown_Up.html</title>
+  <title>t17_slideToggle.html</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
@@ -16,12 +16,10 @@
     $(function(){
       $("div.menuOpen").hide();
 
-      $("button.menuBtn").on("mouseover", function(){
-        $("div.menuOpen").stop().slideDown("slow");
+      $("button.menuBtn").on("click", function(){
+        $("div.menuOpen").stop().slideToggle("fast");
       });
-      $("div.menuOpen").on("mouseout", function(){
-        $("div.menuOpen").stop().slideUp("slow");
-      });
+    
     });
 
   </script>

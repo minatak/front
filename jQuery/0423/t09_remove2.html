@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t08_remove.html(remove/empty)</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    $(() => {
+      $('#setBtn').on('click', function(){
+        // $(".content").remove(); div content 태그를 남김없이 전부 지워버림
+        // $(".content").empty(); // 껍데기는 남겨놓음
+
+        // $('p.aa, p.bb').remove(); 이렇게 써도 아래랑 똑같이 나오지만 아래 방법을 더 많이 씀
+        $('p').remove('.aa, .bb');
+      });
+    });
+  </script>
+  <style>
+    body { margin: 0px;}
+    .content {
+      border: 1px solid paleturquoise;
+      background-color: palegoldenrod;
+    }
+    .aa {
+      background-color: blueviolet;
+    }
+    .bb {
+      background-color: cornflowerblue;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <input type="button" value="제거" id="setBtn" class="btn btn-primary"/>
+  <hr/>
+  <div class="content">
+    <p>1.안녕하세요</p>
+    <p>2.안녕하세요</p>
+    <p class="aa">3.안녕하세요</p>
+    <p>4.안녕하세요</p>
+    <p class="bb">5.안녕하세요</p>
+    <p>6.안녕하세요</p>
+    <p class="aa">7.안녕하세요</p>
+    <p>8.안녕하세요</p>
+    <p class="bb">9.안녕하세요</p>
+    <p>10.안녕하세요</p>
+  </div>
+</div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>t17_slideDown_Up.html</title>
+  <title>t06_after2.html(after/before)</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
@@ -12,34 +12,28 @@
   <script>
     'use strict';
 
+    $(() => {
+      $('#setBtn').on('click', function(){
+        // $('#img').before('<img src="111.jpg" width="200px"/>');
+        // $('#img').after('<img src="113.jpg" width="200px"/>');
+        $('#img') // 체이닝
+          .before('<img src="111.jpg" width="200px"/>')
+          .after('<img src="113.jpg" width="200px"/>');
+      });
     
-    $(function(){
-      $("div.menuOpen").hide();
-
-      $("button.menuBtn").on("mouseover", function(){
-        $("div.menuOpen").stop().slideDown("slow");
-      });
-      $("div.menuOpen").on("mouseout", function(){
-        $("div.menuOpen").stop().slideUp("slow");
-      });
     });
-
   </script>
   <style>
-    div.menuOpen {
-      width: 200px;
-      background-color: pink;
-    }
+    body { margin: 0px;}
   </style>
 </head>
 <body>
 <p><br/></p>
 <div class="container">
-  <button class="menuBtn">메뉴연습</button>
-  <div class="menuOpen">
-    메뉴1<br/>
-    메뉴2<br/>
-    메뉴3<br/>
+  <input type="button" value="내용추가" id="setBtn" class="btn btn-primary"/>
+  <hr/>
+  <div>
+    <img src="112.jpg" id="img" width="300px"/>
   </div>
 </div>
 </body>

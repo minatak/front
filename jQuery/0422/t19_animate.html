@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t19_animate.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    
+    // $(document).ready(function(){
+    // $(function(){
+
+    // animate({위치},지연시간,콜백함수);
+    $(() => {
+      $('.aniBtn').on('click', function(){
+        // $('.aniBox').animate({width:'toggle'},'fast');  // 폭(width)이 0px로 변환된다.
+        $('.aniBox').animate({width:'200px'},'slow');
+        $('.aniBox').animate({height:'150px'},'slow');
+        $('.aniBox').animate({width:'100px'},'slow');
+        $('.aniBox').animate({height:'100px'},'slow');
+
+        $('.aniBox2').animate({width:'200px'},'slow');
+        $('.aniBox2').animate({height:'50px'},'slow');
+        $('.aniBox2').animate({width:'100px'},'slow');
+        $('.aniBox2').animate({height:'100px'},'slow');
+        // queue 의 개념으로 처리...
+      });
+    });
+    
+  </script>
+  <style>
+    body { margin: 0px;}
+    div.aniBox{
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      font-size: 1rem;
+      padding: 5px;
+      margin: 0px;
+    }
+    div.aniBox2{
+      width: 100px;
+      height: 100px;
+      background-color: brown;
+      position: absolute;
+      left: 300px;
+      top: 100px;
+      font-size: 1rem;
+      padding: 5px;
+      margin: 0px;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <button class="aniBtn btn btn-success">클릭</button>
+  <button class="aniBtn btn btn-info" onclick="location.reload()">원래대로</button>
+  <hr/>
+  <div class="aniBox">Good</div>
+  <div class="aniBox2">Good2</div>
+</div>
+</body>
+</html>

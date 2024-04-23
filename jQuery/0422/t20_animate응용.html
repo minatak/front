@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t20_animate.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/df66332deb.js" crossorigin="anonymous"></script>
+  <script>
+    'use strict';
+
+    $(function(){
+      let ani1 = Math.random()*5000 + 4000; // 빨리 도착할 확률 높음
+      let ani2 = Math.random()*5000 + 3500;
+      let ani3 = Math.random()*5000 + 3000; // 확률 낮음
+
+      $('#startBtn').on("click", function(){
+        $('#horse1').animate({
+          marginLeft: '500px'
+        }, ani1, function(){});
+  
+        $('#horse2').animate({
+          marginLeft: '500px'
+        }, ani2, function(){});
+  
+        $('#horse3').animate({
+          marginLeft: '500px'
+        }, ani3, function(){});
+
+        victory();
+        if('#horse1'.location == '500px' && '#horse2'.location == '500px' && '#horse3'.location == '500px') {
+        }
+      });
+
+      let time1 = (ani1/1000);
+      let time2 = (ani2/1000);
+      let time3 = (ani3/1000);
+
+      function victory() {
+        let str = '';
+        str += '<h2>결과</h2>';
+        str += `번개 달린 시간 : ${time1}초<br/>`;
+        str += `영웅 달린 시간 : ${time2}초<br/>`;
+        str += `승리 달린 시간 : ${time3}초<br/>`;
+        str += '';
+        str += '';
+        str += '';
+        $('#demo').html(str);
+      }
+    });
+
+  </script>
+  <style>
+    body {margin: 0px;}
+    #horse1 {
+      color: orange;
+    }
+    #horse2 {
+      color: blue;
+    }
+    #horse3 {
+      color: palegreen;
+    }
+    /* .horse {
+      margin-left: 10px;
+      width: 150px;
+      height: 150px;
+    } */
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>달리기 시합</h2>
+  <hr/>
+  <button id="startBtn">출발</button>
+  <hr/>
+  <div id="horse1"><i class="fa-solid fa-horse"><br/>번개</div></i>
+  <div id="horse2"><i class="fa-solid fa-horse"><br/>영웅</div></i>
+  <div id="horse3"><i class="fa-solid fa-horse"><br/>승리</div></i>
+  <hr/>
+  <div id="demo"></div>
+</div>
+</body>
+</html>

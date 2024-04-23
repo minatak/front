@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>2024-04-13 숙제-자동차레이싱</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/df66332deb.js" crossorigin="anonymous"></script><!-- https://www.angularjswiki.com/fontawesome/cdn/ -->
+  <style>
+    .container {margin: 50px auto;}
+    .btn-group i {font-size: 50px; padding: 40px 0;}
+    .btn-group i span{display: block ;font-size: 20px; margin-top: 20px;}
+    #raceGroup {position: relative; font-size: 32px; background-color: #dfdfdf; border-radius: 5px; min-height: 200px;}
+    #raceGroup::before {display:block;content: ""; width:2px; height: 100%; position: absolute; left: 400px; background-color: red;}
+    #raceGroup i{display: block; position: absolute;}
+    #raceGroup i span{display: block; font-size: 14px;}
+    #raceGroup i:nth-child(1){top:10px;}
+    #raceGroup i:nth-child(2){top:80px;}
+    #raceGroup i:nth-child(3){top:150px;}
+ 
+  </style>
+  <script>
+    'use strict';
+    function logoutCheck(){
+      let ans = [안내]태그제한으로등록되지않습니다("로그아웃 하시겠습니까? (Y/N)");
+      if(ans.trim().toUpperCase() == "Y"){
+        location.href = './login.html';
+      }
+    }
+    window.xxxxonload = function (){
+      let colors = ['white', '#ffe6e6','#ffffb3','#ffffb3','#f2e6ff','#e6f7ff','#ffddcc'];
+      let num = parseInt(Math.random()*7);
+      document.querySelector('.jumbotron').style.backgroundColor = colors[num];
+      let buttons = document.getElementById("btnGroup").querySelectorAll('button');
+      
+      buttons.forEach(button => button.addEventListener('click', e => { // 버튼들 클릭시 작동
+        // console.log(e.target.innerText);
+        let choice = parseInt(e.target.innerText.substring(0,1)); // 선택번호 저장
+        console.log('선택번호: ',choice);
+ 
+        let cars = document.getElementById("raceGroup").querySelectorAll('i');
+        let finish='';
+        let distance = 0;
+        let intervalArr = ['','',''];
+        cars.forEach((car, index) => {
+          clearInterval(intervalArr[index]);
+ 
+          intervalArr[index] = setInterval(() => {
+            distance += parseInt(Math.random()*80);
+            car.style.left = `${distance}px`;
+            console.log(car.innerText+" : "+distance);
+            if(distance > 400) {
+              clearInterval(intervalArr[0]);
+              clearInterval(intervalArr[1]);
+              clearInterval(intervalArr[2]);
+              finish=car.innerText;
+              setTimeout(() => {
+                console.log(finish);
+                if(choice == finish.charAt(0)) alert(choice+"선택해서 누가 이길지 맞추었습니다. "+finish+"가 우승입니다. ^^");
+                else alert("'"+choice+"번' 선택해서 누가 이길지 틀렸습니다. '"+finish+"'가 우승입니다. ^^");
+              }, 1000); 
+            }
+          }, 300);
+        });
+               
+      }));
+    }
+ 
+    
+ 
+  </script>
+</head>
+<body>
+  <div class="jumbotron text-center mb-0">
+    <h1>2024-04-13 숙제</h1>
+    <p>Resize this responsive page to see the effect!</p> 
+  </div>
+ 
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="main.html">Main</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="game1.html">숫자맞추기게임</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="game2.html">가위바위보게임</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="game3.html">디지털시계</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="game4.html">레이싱게임</a>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-sm" xxxxonclick="logoutCheck()">로그아웃</button>
+    </div>  
+  </nav>
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>레이싱게임<button xxxxonclick="location.reload()" class="btn btn-warning ml-3 mb-2" >다시하기!!</button></h2>
+        <p class="mb-5">누가 이길지 맞춰보세요~! 세가지 버튼중 선택해주시면 시작합니다~!!</p>
+ 
+        <div class="row">
+          <div class="btn-group btn-group-lg mb-5 col-lg-6 col-sm-12" id="btnGroup">
+            <button type="button" class="btn btn-primary" ><i class="fa-solid fa-car-side"><span>1. 붕붕이</span></i></button>
+            <button type="button" class="btn btn-success" ><i class="fa-solid fa-truck"><span>2. 빵빵이</span></i></button>
+            <button type="button" class="btn btn-info" ><i class="fa-solid fa-motorcycle"><span>3. 씽씽이</span></i></button>
+          </div>
+          <div class="mb-5 col-lg-6 col-sm-12" id="raceGroup">
+            <i class="fa-solid fa-car-side"><span>1. 붕붕이</span></i>
+            <i class="fa-solid fa-truck"><span>2. 빵빵이</span></i>
+            <i class="fa-solid fa-motorcycle"><span>3. 씽씽이</span></i>
+          </div>
+        </div>
+       
+ 
+        <div id="res"></div> <!-- 결과표시-->
+      </div>
+    </div>
+  </div>
+ 
+  <footer class="jumbotron text-center mb-0">Copyright ⓒ Eunha. All rights reserved.</footer>
+ 
+ 
+</body>
+</html>
